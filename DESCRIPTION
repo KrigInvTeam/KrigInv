@@ -26,7 +26,7 @@ Authors@R:
              comment = c(ORCID = "0000-0002-4948-5542")),
       person(given = "Yann",
              family = "Richet",
-             role = c("aut"),
+             role = c("ctb"),
              email = "yann.richet@irsn.fr",
              comment = c(ORCID = "0000-0002-5677-8458")))
 Maintainer: Dario Azzimonti <dario.azzimonti@gmail.com>
@@ -34,13 +34,9 @@ Depends: DiceKriging
 Imports: randtoolbox, rgenoud, pbivnorm, anMC, mvtnorm
 Suggests: testthat
 Description: Criteria and algorithms for sequentially estimating level sets of a multivariate numerical function, possibly observed with noise.
-URL:
-        https://www.sciencedirect.com/science/article/pii/S0167947313001060,
-        http://www.clementchevalier.com
+URL:  https://doi.org/10.1016/j.csda.2013.03.008
 License: GPL-3
 LazyLoad: yes
 Repository: CRAN
-Date/Publication: 2018-09-11 15:10:03 UTC
 RoxygenNote: 6.1.0
 NeedsCompilation: no
-Packaged: 2018-09-11 08:20:39 UTC; cc
