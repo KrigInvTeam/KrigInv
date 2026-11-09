@@ -102,11 +102,11 @@ If \code{method="vorobCons"} or \code{method="vorobVol"} the list also has compo
 }
 
 \references{
-Azzimonti, D., Ginsbourger, D., Chevalier, C., Bect, J., and Richet, Y. (2018). \emph{Adaptive design of experiments for conservative estimation of excursion sets}. Under revision. Preprint at \href{https://hal.archives-ouvertes.fr/hal-01379642}{hal-01379642}
+Azzimonti, D., Ginsbourger, D., Chevalier, C., Bect, J., and Richet, Y. (2021). \emph{Adaptive design of experiments for conservative estimation of excursion sets}. Technometrics, 63(1):13-26. \doi{10.1080/00401706.2019.1693427}
 
-Chevalier C., Bect J., Ginsbourger D., Vazquez E., Picheny V., Richet Y. (2014), \emph{Fast parallel kriging-based stepwise uncertainty reduction with application to the identification of an excursion set}, Technometrics, vol. 56(4), pp 455-465
+Chevalier C., Bect J., Ginsbourger D., Vazquez E., Picheny V., Richet Y. (2014), \emph{Fast parallel kriging-based stepwise uncertainty reduction with application to the identification of an excursion set}, Technometrics, vol. 56(4), pp 455-465. \doi{10.1080/00401706.2013.860918}
 
-Picheny V., Ginsbourger D., Roustant O., Haftka R.T., (2010) \emph{Adaptive designs of experiments for accurate approximation of a target region}, J. Mech. Des. vol. 132(7)
+Picheny V., Ginsbourger D., Roustant O., Haftka R.T., (2010) \emph{Adaptive designs of experiments for accurate approximation of a target region}, J. Mech. Des. vol. 132(7). \doi{10.1115/1.4001873}
 
 Chevalier C. (2013) \emph{Fast uncertainty reduction strategies relying on Gaussian process models} Ph.D Thesis, University of Bern
 }
@@ -147,7 +147,7 @@ integcontrol <- list(distrib="sur",n.points=50)
 iter <- 1
 batchsize <- 6
 
-\dontrun{
+\donttest{
   obj <- EGIparallel(T=T,model=model,method="sur",batchsize=batchsize,
                      fun=testfun,iter=iter,lower=lower,upper=upper,
                      optimcontrol=optimcontrol,integcontrol=integcontrol)
@@ -182,7 +182,7 @@ integcontrol <- list(distrib="sur",n.points=50)
 iter <- 1
 batchsize <- 6
 
-\dontrun{
+\donttest{
   obj <- EGIparallel(T=T,model=model.noise,method="sur",batchsize=batchsize,
                      fun=testfun,iter=iter,lower=lower,upper=upper,
                      optimcontrol=optimcontrol,integcontrol=integcontrol,
@@ -202,7 +202,7 @@ batchsize <- 6
 
 ##############
 # Conservative estimates with non-noisy initial observations
-\dontrun{
+\donttest{
   testfun <- branin
   # The conservative sampling strategies
   # only work with 1 threshold

@@ -38,7 +38,7 @@ When the argument \code{x} is a p*d matrix, the function returns a vector of siz
 }
 
 \references{
-Bichon B.J., Eldred M.S., Swiler L.P., Mahadevan S., McFarland J.M. (2008) \emph{Efficient global reliability analysis for nonlinear implicit performance functions}, AIAA Journal 46(10), pp 2459-2468
+Bichon B.J., Eldred M.S., Swiler L.P., Mahadevan S., McFarland J.M. (2008) \emph{Efficient global reliability analysis for nonlinear implicit performance functions}, AIAA Journal 46(10), pp 2459-2468. \doi{10.2514/1.34321}
 }
 \author{ 
 Victor Picheny (INRA, Toulouse, France)

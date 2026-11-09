@@ -33,13 +33,13 @@ A list containing \code{par}, the best set of parameters found, \code{value} the
 Maximizes the criterion \code{vorobVol_optim_parallel}.
 }
 \references{
-Azzimonti, D. and Ginsbourger, D. (2018). \emph{Estimating orthant probabilities of high dimensional Gaussian vectors with an application to set estimation}.  Journal of Computational and Graphical Statistics, 27(2), 255-267.
+Azzimonti, D. and Ginsbourger, D. (2018). \emph{Estimating orthant probabilities of high dimensional Gaussian vectors with an application to set estimation}. Journal of Computational and Graphical Statistics, 27(2), 255-267. \doi{10.1080/10618600.2017.1360781}
 
 Azzimonti, D. (2016). \emph{Contributions to Bayesian set estimation relying on random field priors}. PhD thesis, University of Bern.
 
-Azzimonti, D., Ginsbourger, D., Chevalier, C., Bect, J., and Richet, Y. (2018). \emph{Adaptive design of experiments for conservative estimation of excursion sets}. Under revision. Preprint at \href{https://hal.archives-ouvertes.fr/hal-01379642}{hal-01379642}
+Azzimonti, D., Ginsbourger, D., Chevalier, C., Bect, J., and Richet, Y. (2021). \emph{Adaptive design of experiments for conservative estimation of excursion sets}. Technometrics, 63(1):13-26. \doi{10.1080/00401706.2019.1693427}
 
-Chevalier, C., Bect, J., Ginsbourger, D., Vazquez, E., Picheny, V., and Richet, Y. (2014). \emph{Fast kriging-based stepwise uncertainty reduction with application to the identification of an excursion set}. Technometrics, 56(4):455-465.
+Chevalier C., Bect J., Ginsbourger D., Vazquez E., Picheny V., Richet Y. (2014), \emph{Fast parallel kriging-based stepwise uncertainty reduction with application to the identification of an excursion set}, Technometrics, vol. 56(4), pp 455-465. \doi{10.1080/00401706.2013.860918}
 }
 
 
@@ -76,7 +76,7 @@ integration.param <- integration_design(integcontrol=integcontrol,d=2,
 
 batchsize <- 5 #number of new points
 
-\dontrun{
+\donttest{
   obj <- max_futureVol_parallel(lower=lower,upper=upper,optimcontrol=optimcontrol,
                             batchsize=batchsize,T=T,model=model,
                             integration.param=integration.param)

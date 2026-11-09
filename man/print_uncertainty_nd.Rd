@@ -81,7 +81,7 @@ The integrated uncertainty
 }
 
 \references{
-Bect J., Ginsbourger D., Li L., Picheny V., Vazquez E. (2012), \emph{Sequential design of computer experiments for the estimation of a probability of failure}, Statistics and Computing vol. 22(3), pp 773-793
+Bect J., Ginsbourger D., Li L., Picheny V., Vazquez E. (2012), \emph{Sequential design of computer experiments for the estimation of a probability of failure}, Statistics and Computing vol. 22(3), pp 773-793. \doi{10.1007/s11222-011-9241-4}
 }
 
 \author{ 
@@ -111,7 +111,7 @@ response <- apply(design,1,testfun)
 model <- km(formula=~., design = design, 
 	response = response,covtype="matern3_2")
 
-\dontrun{
+\donttest{
 print_uncertainty_nd(model=model,T=T,main="average probability of excursion",type="pn",
                     option="mean")
 

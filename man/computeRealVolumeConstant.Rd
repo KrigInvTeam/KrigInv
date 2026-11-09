@@ -34,7 +34,7 @@ when the number of threshold is equal to 1.
 }
 
 \references{
-Chevalier C., Bect J., Ginsbourger D., Vazquez E., Picheny V., Richet Y. (2014), \emph{Fast parallel kriging-based stepwise uncertainty reduction with application to the identification of an excursion set}, Technometrics, vol. 56(4), pp 455-465
+Chevalier C., Bect J., Ginsbourger D., Vazquez E., Picheny V., Richet Y. (2014), \emph{Fast parallel kriging-based stepwise uncertainty reduction with application to the identification of an excursion set}, Technometrics, vol. 56(4), pp 455-465. \doi{10.1080/00401706.2013.860918}
 }
 
 \author{
@@ -67,7 +67,7 @@ obj <- integration_design(integcontrol=integcontrol,
 integration.points <- obj$integration.points
 integration.weights <- obj$integration.weights
 
-\dontrun{
+\donttest{
 computeRealVolumeConstant(model=model,
 	integration.points=integration.points,
         integration.weights=integration.weights,T=T)

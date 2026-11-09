@@ -62,11 +62,11 @@ Optional boolean to decide if the \code{"imse"} criterion should be used instead
 }
 
 \references{
-Picheny V., Ginsbourger D., Roustant O., Haftka R.T., (2010) \emph{Adaptive designs of experiments for accurate approximation of a target region}, J. Mech. Des. vol. 132(7)
+Picheny V., Ginsbourger D., Roustant O., Haftka R.T., (2010) \emph{Adaptive designs of experiments for accurate approximation of a target region}, J. Mech. Des. vol. 132(7). \doi{10.1115/1.4001873}
 
 Picheny V. (2009) \emph{Improving accuracy and compensating for uncertainty in surrogate modeling}, Ph.D. thesis, University of Florida and Ecole Nationale Superieure des Mines de Saint-Etienne
 
-Chevalier C., Bect J., Ginsbourger D., Vazquez E., Picheny V., Richet Y. (2014), \emph{Fast parallel kriging-based stepwise uncertainty reduction with application to the identification of an excursion set}, Technometrics, vol. 56(4), pp 455-465
+Chevalier C., Bect J., Ginsbourger D., Vazquez E., Picheny V., Richet Y. (2014), \emph{Fast parallel kriging-based stepwise uncertainty reduction with application to the identification of an excursion set}, Technometrics, vol. 56(4), pp 455-465. \doi{10.1080/00401706.2013.860918}
 }
 
 \author{
@@ -104,7 +104,7 @@ integration.param <- integration_design(integcontrol=integcontrol,d=2,
                                             T=T)
 batchsize <- 5 #number of new points
 
-\dontrun{
+\donttest{
 obj <- max_timse_parallel(lower=lower,upper=upper,optimcontrol=optimcontrol,
                         batchsize=batchsize,T=T,model=model,
                         integration.param=integration.param,epsilon=0,imse=FALSE)

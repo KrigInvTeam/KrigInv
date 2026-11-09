@@ -19,7 +19,7 @@ In this function, all the points x are supposed to be equaly weighted.
 
 \value{a scalar: the Vorob'ev thresold}
 \references{
-Chevalier C., Ginsbouger D., Bect J., Molchanov I. (2013) \emph{Estimating and quantifying uncertainties on level sets using the Vorob'ev expectation and deviation with gaussian process models} mODa 10, Advances in Model-Oriented Design and Analysis, Contributions to Statistics, pp 35-43
+Chevalier C., Ginsbourger D., Bect J., Molchanov I. (2013) \emph{Estimating and quantifying uncertainties on level sets using the Vorob'ev expectation and deviation with gaussian process models} mODa 10, Advances in Model-Oriented Design and Analysis, Contributions to Statistics, pp 35-43. \doi{10.1007/978-3-319-00218-7_5}
 
 Chevalier C. (2013) \emph{Fast uncertainty reduction strategies relying on Gaussian process models} Ph.D Thesis, University of Bern
 }
@@ -47,7 +47,7 @@ response <- testfun(design)
 model <- km(formula=~., design = design, 
 	response = response,covtype="matern3_2")
 
-\dontrun{
+\donttest{
 ###we need to compute some additional arguments:
 #integration points, and current kriging means and variances at these points
 integcontrol <- list(n.points=50,distrib="sobol")

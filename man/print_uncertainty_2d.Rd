@@ -118,7 +118,7 @@ The integrated uncertainty. If the conservative estimate is computed, it also re
 }
 
 \references{
-Bect J., Ginsbourger D., Li L., Picheny V., Vazquez E. (2012), \emph{Sequential design of computer experiments for the estimation of a probability of failure}, Statistics and Computing vol. 22(3), pp 773-793
+Bect J., Ginsbourger D., Li L., Picheny V., Vazquez E. (2012), \emph{Sequential design of computer experiments for the estimation of a probability of failure}, Statistics and Computing vol. 22(3), pp 773-793. \doi{10.1007/s11222-011-9241-4}
 }
 
 \author{
@@ -148,7 +148,7 @@ response <- testfun(design)
 model <- km(formula=~., design = design,
 	response = response,covtype="matern3_2")
 
-\dontrun{
+\donttest{
 print_uncertainty_2d(model=model,T=T,main="probability of excursion",
                      type="pn",krigmeanplot=TRUE,vorobmean=TRUE)
 
