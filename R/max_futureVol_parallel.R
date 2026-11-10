@@ -97,7 +97,7 @@ max_futureVol_parallel <- function(lower, upper, optimcontrol=NULL,
       }
       ibest <- which.max(all.crit)
       o <- list(3)
-      o$par <- t(matrix(optim.points[ibest,],nrow=d,ncol=batchsize)); colnames(o$par) <- colnames(model@X)
+      o$par <- t(matrix(as.numeric(optim.points[ibest,]),nrow=d,ncol=batchsize)); colnames(o$par) <- colnames(model@X)
       o$value <- all.crit[ibest]; o$value <- as.matrix(o$value); colnames(o$value) <- colnames(model@y)
       o$allvalues <- all.crit
       return(list(par=o$par, value=o$value,allvalues=o$allvalues))

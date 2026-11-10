@@ -77,7 +77,9 @@
 		  return(list(par=o$par, value=o$value,allvalues=o$allvalues))
 		}else{
 		  #new code (Aug 2012)
-		  fun.optim <- vorob_optim_parallel2
+		  # each row of optim.points is a whole batch: no other.points, so the
+		  # batch criterion itself (not the greedy wrapper *_parallel2) is used
+		  fun.optim <- vorob_optim_parallel
 		  all.crit <- seq(1,nrow(optim.points))
 
 		  for (i in 1:nrow(optim.points)){
@@ -88,7 +90,7 @@
 		  }
 		  ibest <- which.min(all.crit)
 		  o <- list(3)
-		  o$par <- t(matrix(optim.points[ibest,],nrow=d,ncol=batchsize)); colnames(o$par) <- colnames(model@X)
+		  o$par <- t(matrix(as.numeric(optim.points[ibest,]),nrow=d,ncol=batchsize)); colnames(o$par) <- colnames(model@X)
 		  o$value <- all.crit[ibest]; o$value <- as.matrix(o$value); colnames(o$value) <- colnames(model@y)
 		  o$allvalues <- all.crit
 		  return(list(par=o$par, value=o$value,allvalues=o$allvalues))

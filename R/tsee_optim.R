@@ -1,5 +1,7 @@
 tsee_optim <-
-function(x, model, T){
+function(x, model, T, method.param=NULL){
+	# method.param is not used: it is accepted so that tsee_optim can be called
+	# by max_infill_criterion like the other pointwise criteria
 	
 	y <- t(x)
   if((nrow(y)==1) && (ncol(y)==model@d)){

@@ -36,3 +36,28 @@ test_points <- function(model, n, seed = 1) {
   colnames(P) <- colnames(model@X)
   P
 }
+
+# 1d model: f(x) = 10 x sin(6 x) on [0, 1], 8 points, fixed covariance parameters.
+f_1d <- function(x) 10 * x * sin(6 * x)
+model_1d <- function(n = 8, seed = 3) {
+  set.seed(seed)
+  X <- data.frame(x = sort(runif(n)))
+  km(~1, design = X, response = f_1d(X$x), covtype = "matern5_2",
+     coef.cov = 0.25, coef.var = 25, control = list(trace = FALSE))
+}
+
+# 3d model: f(x) = sum((4 x - 2)^2) on [0, 1]^3, 15 points, fixed covariance parameters.
+f_3d <- function(X) rowSums((4 * as.matrix(X) - 2)^2)
+model_3d <- function(n = 15, seed = 4) {
+  set.seed(seed)
+  X <- data.frame(matrix(runif(3 * n), ncol = 3))
+  km(~1, design = X, response = f_3d(X), covtype = "matern5_2",
+     coef.cov = c(0.6, 0.6, 0.6), coef.var = 30, control = list(trace = FALSE))
+}
+
+# Run code with a null graphics device (no Rplots.pdf left behind).
+with_null_device <- function(code) {
+  grDevices::pdf(NULL)
+  on.exit(grDevices::dev.off(), add = TRUE)
+  force(code)
+}

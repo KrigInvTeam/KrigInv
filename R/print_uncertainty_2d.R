@@ -85,13 +85,20 @@ function(model,T,type="pn",lower=c(0,0),upper=c(1,1),
 	  if(is.numeric(consQuantile)){
 	    contour(x=scale.x,y=scale.y,z=pnmatrix,add=TRUE,levels=c(consQuantile),lwd=5,col="green",labcex=0.01)
 	  }else{
-	    if(!is.null(consQuantile$consLevel)){
+	    if(!is.null(consQuantile$consLevel) && length(T) > 1){
+	      print("Conservative estimates are not available with multiple thresholds.")
+	    }else if(!is.null(consQuantile$consLevel)){
 	      pred$cov <- pred$cov +1e-7*diag(nrow = nrow(pred$cov),ncol = ncol(pred$cov))
+	      # conservativeEstimate expects pn = P(Y < T) for excursions below T;
+	      # its level lvs refers to that probability, so on the pn = P(Y > T)
+	      # scale used here the level is 1 - lvs.
+	      ceType <- if (is.null(consQuantile$typeEx)) ">" else consQuantile$typeEx
 	      current.CE <- conservativeEstimate(alpha = consQuantile$consLevel, pred=pred,
-	                                         design=img_design, threshold=T, pn = pn,
-	                                         type = ">", verb = 0,
+	                                         design=img_design, threshold=T, pn = if (ceType == ">") pn else 1 - pn,
+	                                         type = ceType, verb = 0,
 	                                         lightReturn = TRUE, algo = "GANMC")
-	      contour(x=scale.x,y=scale.y,z=pnmatrix,add=TRUE,levels=c(current.CE$lvs),lwd=5,col="green",labcex=0.01)
+	      ceLevel <- if (ceType == ">") current.CE$lvs else 1 - current.CE$lvs
+	      contour(x=scale.x,y=scale.y,z=pnmatrix,add=TRUE,levels=c(ceLevel),lwd=5,col="green",labcex=0.01)
 	      res <- c(res, current.CE$lvs)
 	      names(res) <- c("integrated pn","CEquantile")
 	    }

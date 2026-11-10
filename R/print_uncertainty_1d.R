@@ -87,14 +87,21 @@ print_uncertainty_1d <- function(model,T,type="pn",
 	  if(is.numeric(consQuantile)){
 	    lines(scale.x,rep(consQuantile,times=resolution),col="green",lty=2,lwd=3)
 	  }else{
-	    if(!is.null(consQuantile$consLevel)){
+	    if(!is.null(consQuantile$consLevel) && length(T) > 1){
+	      print("Conservative estimates are not available with multiple thresholds.")
+	    }else if(!is.null(consQuantile$consLevel)){
 	      pred <- predict_nobias_km(object=model,newdata=s,type="UK",cov.compute = TRUE)
 	      pred$cov <- pred$cov +1e-7*diag(nrow = nrow(pred$cov),ncol = ncol(pred$cov))
+	      # conservativeEstimate expects pn = P(Y < T) for excursions below T;
+	      # its level lvs refers to that probability, so on the pn = P(Y > T)
+	      # scale used here the level is 1 - lvs.
+	      ceType <- if (is.null(consQuantile$typeEx)) ">" else consQuantile$typeEx
 	      current.CE <- conservativeEstimate(alpha = consQuantile$consLevel, pred=pred,
-	                                         design=s, threshold=T[2], pn = pn,
-	                                         type = ">", verb = 0,
+	                                         design=s, threshold=T, pn = if (ceType == ">") pn else 1 - pn,
+	                                         type = ceType, verb = 0,
 	                                         lightReturn = TRUE, algo = "GANMC")
-	      lines(scale.x,rep(current.CE$lvs,times=resolution),col="green",lty=2,lwd=3)
+	      ceLevel <- if (ceType == ">") current.CE$lvs else 1 - current.CE$lvs
+	      lines(scale.x,rep(ceLevel,times=resolution),col="green",lty=2,lwd=3)
 	      res <- c(res, current.CE$lvs)
 	      names(res) <- c("integrated pn","CEquantile")
 	    }

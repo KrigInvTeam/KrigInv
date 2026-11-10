@@ -8,7 +8,7 @@
 Evaluation of the Two-Sided Expected Exceedance criterion. To be used in optimization routines, like in \code{\link{max_infill_criterion}}.
 }
 \usage{
-tsee_optim(x, model, T)
+tsee_optim(x, model, T, method.param = NULL)
 }
 
 \arguments{
@@ -21,6 +21,9 @@ An object of class \code{\link[DiceKriging]{km}} (Kriging model).
 }
   \item{T}{
 Target value (scalar).
+}
+  \item{method.param}{
+Not used. Accepted for compatibility with the other criteria called by \code{\link{max_infill_criterion}}.
 }
 }
 
