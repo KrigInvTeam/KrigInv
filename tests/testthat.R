@@ -1,5 +1,4 @@
-## load dependencies
 library(testthat)
+library(KrigInv)
 
-## test package
-test_check('KrigInv')
+test_check("KrigInv")

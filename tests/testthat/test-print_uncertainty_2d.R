@@ -44,8 +44,10 @@ model <- km(formula=~1, design = design,
             response = response,covtype="matern3_2",coef.trend = 154,coef.cov = c(0.67,1.37),coef.var = 27720)
 
 
+pdf(NULL)
 result1 <- print_uncertainty_2d(model=model,T=T,main="probability of excursion",
                      type="pn",krigmeanplot=TRUE,vorobmean=TRUE)
+invisible(dev.off())
 
 precision <- 0.001
 test_that(desc="integrated pn", expect_true( abs(result1 - 0.204245) < precision ) )

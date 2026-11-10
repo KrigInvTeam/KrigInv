@@ -23,5 +23,6 @@ tmse_optim <- function(x, model, T, method.param=NULL){
 	}
 	
 	tmse <- W*sk^2
+	tmse[is.nan(tmse)] <- 0 # sk == 0 gives Inf * 0; the limit of W*sk^2 as sk -> 0 is 0
 	return(tmse)
 }

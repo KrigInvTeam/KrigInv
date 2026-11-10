@@ -11,7 +11,7 @@ EGIparallel <- function(T, model, method=NULL, method.param=NULL,
 
   n <- nrow(model@X); d <- model@d
   if (is.null(kmcontrol$penalty)) kmcontrol$penalty <- model@penalty
-  if (length(model@penalty==0)) kmcontrol$penalty <- NULL
+  if (length(model@penalty) == 0) kmcontrol$penalty <- NULL
   if (is.null(kmcontrol$optim.method)) kmcontrol$optim.method <- model@optim.method
   if (is.null(kmcontrol$parinit)) kmcontrol$parinit <- model@parinit
   if (is.null(kmcontrol$control)) kmcontrol$control <- model@control
