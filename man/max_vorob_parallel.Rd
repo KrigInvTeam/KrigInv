@@ -27,7 +27,7 @@ Optional list of control parameters for the optimization of the sampling criteri
 If the field \code{method} is set to \code{"genoud"}, one can set some parameters of this algorithm:
 \code{pop.size}  (default : 50*d),  \code{max.generations} (10*d), \code{wait.generations} (2),  \code{BFGSburnin} (2) and the mutations \code{P1}, \code{P2}, up to \code{P9} (see \code{\link[rgenoud]{genoud}}). Numbers into brackets are the default values.
 If the field \code{method} is set to \code{"discrete"}, one can set the field \code{optim.points}: p * d matrix corresponding to the p points where the criterion will be evaluated. If nothing is specified, 100*d points are chosen randomly.
-Finally, one can control the field {optim.option} in order to decide how to optimize the sampling criterion.
+Finally, one can control the field \code{optim.option} in order to decide how to optimize the sampling criterion.
 If \code{optim.option} is set to 2 (default), batchsize sequential optimizations in dimension d are performed to find the optimum.
 If \code{optim.option} is set to 1, only one optimization in dimension batchsize*d is performed. This option is only available with \code{"genoud"}. This option might provide more global and accurate solutions, but is a lot more expensive.
 }

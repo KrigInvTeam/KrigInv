@@ -28,10 +28,10 @@ Criterion used for choosing observations.
 }
   \item{method.param}{
 Optional method parameters. For methods\itemize{
-\item{\code{"ranjan"}, \code{"bichon"}, \cr
-\code{"tmse"} and \code{"timse"}: the tolerance value (scalar). If not provided, default value is used (1 for ranjan and bichon, 0 for tmse and timse).}
-\item{\code{"vorob"}: a list containing \code{penalization} (scalar, default=1), type I penalization, and \code{typeEx},(character, default=">") either ">" or "<" denoting the type of excursion. }
-\item{\code{"vorobCons"} and \code{"vorobVol"}: a list containing  \code{penalization} (scalar, default =1), \code{typeEx} (character, default = ">"), \code{consLevel} (scalar, default=0.95), \code{n_discrete_design} (scalar, default=500*model@d), \code{design} (data.frame, default=\code{as.data.frame(sobol (n = method.param$n_discrete_design, dim = model@d))} ), \code{pred} (result of \code{predict.km} on \code{model} at \code{design}) and \code{consVorbLevel}, the conservative estimate Vorob'ev quantile computed from \code{pred}. See also the arguments \code{alpha}, \code{pred}, \code{design}, \code{type} from the function \code{\link[anMC]{conservativeEstimate}}, package \code{anMC}, for more details. }
+\item \code{"ranjan"}, \code{"bichon"}, \cr
+\code{"tmse"} and \code{"timse"}: the tolerance value (scalar). If not provided, default value is used (1 for ranjan and bichon, 0 for tmse and timse).
+\item \code{"vorob"}: a list containing \code{penalization} (scalar, default=1), type I penalization, and \code{typeEx},(character, default=">") either ">" or "<" denoting the type of excursion.
+\item \code{"vorobCons"} and \code{"vorobVol"}: a list containing  \code{penalization} (scalar, default =1), \code{typeEx} (character, default = ">"), \code{consLevel} (scalar, default=0.95), \code{n_discrete_design} (scalar, default=500*model@d), \code{design} (data.frame, default=\code{as.data.frame(sobol (n = method.param$n_discrete_design, dim = model@d))} ), \code{pred} (result of \code{predict.km} on \code{model} at \code{design}) and \code{consVorbLevel}, the conservative estimate Vorob'ev quantile computed from \code{pred}. See also the arguments \code{alpha}, \code{pred}, \code{design}, \code{type} from the function \code{\link[anMC]{conservativeEstimate}}, package \code{anMC}, for more details.
 } }
   \item{batchsize}{
 Number of points to sample simultaneously. The sampling criterion will return \code{batchsize} points at each iteration. Some criteria can be used only with batchsize = 1 (see description).
@@ -57,7 +57,7 @@ If the field \code{method} is set to \code{"genoud"}, one can set some parameter
 \code{pop.size}  (default : 50*d),  \code{max.generations} (default : 10*d), \cr
 \code{wait.generations} (2),  \code{BFGSburnin} (2) and the mutations \code{P1}, \code{P2}, up to \code{P9} (see \code{\link[rgenoud]{genoud}}). Numbers into brackets are the default values.
 If the field \code{method} is set to \code{"discrete"}, one can set the field \code{optim.points}: p * d matrix corresponding to the p points where the criterion will be evaluated. If nothing is specified, 100*d points are chosen randomly.
-Finally, one can control the field {optim.option} in order to decide how to optimize the sampling criterion.
+Finally, one can control the field \code{optim.option} in order to decide how to optimize the sampling criterion.
 If \code{optim.option} is set to 2 (default), batchsize sequential optimizations in dimension d are performed to find the optimum.
 If \code{optim.option} is set to 1, only one optimization in dimension batchsize*d is performed. This option is only available with \code{"genoud"}. This option might provide more global and accurate solutions, but is a lot more expensive.
 }
@@ -215,7 +215,7 @@ batchsize <- 6
   # with conservative estimates at 0.95
   method.param = list(penalization=0, # Type II strategy
                       typeEx=">", consLevel = 0.95,
-                      n_discrete_design=500*model@d)
+                      n_discrete_design=100*model@d)
   # If the CE for the initial model is already computed
   # it is possible to pass the conservative Vorob'ev quantile
   # level with method.param$consVorbLevel
@@ -239,7 +239,7 @@ batchsize <- 6
   # Here we pass the conservative level computed
   # in the previous step for the initial model
   method.param = list(typeEx=">", consLevel = 0.95,
-                      n_discrete_design=500*model@d,
+                      n_discrete_design=100*model@d,
                       consVorbLevel=obj_T2$allCE_lvs[1]
   )
 

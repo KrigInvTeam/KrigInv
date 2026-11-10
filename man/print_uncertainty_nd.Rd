@@ -3,7 +3,7 @@
 \alias{print_uncertainty_nd}
 
 \title{
-Print a measure of uncertainty for functions with dimension d strictly larger than 2.
+Print a measure of uncertainty for functions with dimension d strictly larger than 2
 }
 \description{
 This function draws projections on various plans of a given measure of uncertainty. 
@@ -69,7 +69,7 @@ Optional position shifting of the titles of the y axis.
 Optional argument (a string). The 3 possible values are \code{"mean"} (default), \code{"max"} and \code{"min"}.
 }
   \item{pairs}{
-Optional argument. When set to code{NULL} (default) the function performs the projections on plans spanned by each pair (i,j) of dimension. Otherwise, the argument is an array of size 2 corresponding to the dimensions spanning the (only) plan on which the projection is performed.
+Optional argument. When set to \code{NULL} (default) the function performs the projections on plans spanned by each pair (i,j) of dimension. Otherwise, the argument is an array of size 2 corresponding to the dimensions spanning the (only) plan on which the projection is performed.
 }
 \item{...}{
 Additional arguments to the \code{image} function.

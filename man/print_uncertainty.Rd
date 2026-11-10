@@ -3,7 +3,7 @@
 \alias{print_uncertainty}
 
 \title{
-Prints a measure of uncertainty for a function of any dimension.
+Prints a measure of uncertainty for a function of any dimension
 }
 \description{
 This function prints the value of a given measure of uncertainty. 

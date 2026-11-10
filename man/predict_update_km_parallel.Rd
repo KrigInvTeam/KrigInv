@@ -3,7 +3,7 @@
 \alias{predict_update_km_parallel}
 
 \title{
-Quick update of kriging means and variances when one or many new points are added to the DOE.
+Quick update of kriging means and variances when one or many new points are added to the DOE
 }
 
 \description{

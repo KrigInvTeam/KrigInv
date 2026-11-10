@@ -3,7 +3,7 @@
 \alias{print_uncertainty_1d}
 
 \title{
-Prints a measure of uncertainty for 1d function.
+Prints a measure of uncertainty for 1d function
 }
 \description{
 This function draws the value of a given measure of uncertainty over the whole input domain (1D).
@@ -91,8 +91,8 @@ When set to \code{TRUE}, and if \code{krigmeanplot} is also set to \code{TRUE}, 
 }
 \item{consQuantile}{
 Optional value for plotting conservative quantiles. In order to plot \itemize{
-\item{Conservative estimates: \code{consQuantile} is a list containing at least \code{consLevel} (scalar), with the option \code{typeEx} (character, default = ">").}
-\item{Generic Vorob'ev quantiles: \code{consQuantile} is a scalar corresponding to the Vorob'ev quantile level.}
+\item Conservative estimates: \code{consQuantile} is a list containing at least \code{consLevel} (scalar), with the option \code{typeEx} (character, default = ">").
+\item Generic Vorob'ev quantiles: \code{consQuantile} is a scalar corresponding to the Vorob'ev quantile level.
 }
 }
 \item{...}{
