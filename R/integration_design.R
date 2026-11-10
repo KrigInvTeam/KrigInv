@@ -116,13 +116,8 @@ integration_design <- function(integcontrol=NULL,d=NULL,lower,upper,model=NULL,T
 	  predictions <- predict_nobias_km(object=model,newdata=initial.integration.points,type="UK")
 	  
 	  pn <- excursion_probability(mn = predictions$mean,sn = predictions$sd,T = T)
-    integ.pn <- mean(pn)
-	  pn.sort <- sort(pn)#tres cher
-    
-	  index <- (1-integ.pn)*length(pn);index.floor <- floor(index);index.cap <- index.floor+1
-	  wbig <- index - index.floor;wsmall <- 1- wbig
-	  alpha <- pn.sort[index.floor]*wsmall + pn.sort[index.cap]*wbig
-    
+	  alpha <- vorob_threshold(pn)
+
 	  pn_bigger_than_alpha <- (pn>alpha)+0
 	  pn_lower_than_alpha <- 1-pn_bigger_than_alpha
     

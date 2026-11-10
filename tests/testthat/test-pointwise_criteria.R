@@ -24,13 +24,13 @@ test_that("the test points are informative (non-trivial sd and criteria)", {
 test_that("ranjan_optim is E[(alpha^2 sk^2 - (Y - T)^2)_+]", {
   alpha <- 1.5
   mc <- mc_expectation(function(Y, mu, s) pmax(alpha^2 * s^2 - (Y - T)^2, 0))
-  expect_equal(as.numeric(ranjan_optim(x, m, T, method.param = alpha)), mc, tolerance = 0.02)
+  expect_equal(as.numeric(ranjan_optim(x, m, T, method.param = alpha)), mc, tolerance = 0.005)
 })
 
 test_that("bichon_optim is E[(alpha sk - |Y - T|)_+]", {
   alpha <- 1.5
   mc <- mc_expectation(function(Y, mu, s) pmax(alpha * s - abs(Y - T), 0))
-  expect_equal(as.numeric(bichon_optim(x, m, T, method.param = alpha)), mc, tolerance = 0.02)
+  expect_equal(as.numeric(bichon_optim(x, m, T, method.param = alpha)), mc, tolerance = 0.005)
 })
 
 test_that("tsee_optim is E[(Y - T)_+] * E[(T - Y)_+]", {
